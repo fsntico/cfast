@@ -1,4 +1,4 @@
-module CreateApp
+module CfastApp
 
 go 1.22.4
 
