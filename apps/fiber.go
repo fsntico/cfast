@@ -115,60 +115,70 @@ module.exports = {
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <link rel="stylesheet" href="../static/css/main.css">
     <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="manifest" href="../static/manifest.json">
+    <link rel="stylesheet" href="/static/css/flowbite.min.css">
+    <script src="https://unpkg.com/hyperscript.org@0.9.12"></script>
+    <meta name="theme-color" content="#ffffff">
     <link rel="icon" href="../static/img/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
-    <title>Projeto Fiber</title>
+    <script src="../static/js/htmx.min.js"></script>
+    <title>Rota Mx</title>
 </head>
 
-<body class="font-[Poppins] bg-gradient-to-t from-slate-400 to-slate-200 h-screen flex flex-col">
+<body class="font-[Poppins] bg-gradient-to-t from-slate-400 to-slate-200 min-h-screen flex flex-col">
     <header class="bg-white">
-        <nav class="flex justify-between items-center w-[92%]  mx-auto">
-            <div>
-                <img class="w-16 cursor-pointer" src="https://cdn-icons-png.flaticon.com/512/5968/5968204.png"
-                    alt="...">
+        <nav class="bg-white border-gray-200 ">
+            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                <a href="https://mxrota.shop/" class="flex items-center space-x-3 rtl:space-x-reverse">
+                    <img src="/static/img/logo.svg" class="h-8" alt="Flowbite Logo" />
+                    <span class="self-center text-2xl font-semibold whitespace-nowrap "></span>
+                </a>
+                <button data-collapse-toggle="navbar-default" type="button"
+                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 "
+                    aria-controls="navbar-default" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M1 1h15M1 7h15M1 13h15" />
+                    </svg>
+                </button>
+                <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                    <ul
+                        class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white ">
+
+                        <li>
+                            <a hx-get="/inicio" hx-target="#main" hx-trigger="click" hx-indicator="#spinner" href="#"
+                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 ">Inicio</a>
+                        </li>
+                        <li>
+                            <a hx-get="/pedsemrota" hx-target="#main" hx-trigger="click" hx-indicator="#spinner"
+                                href="#"
+                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 ">Entregas</a>
+                        </li>
+                        <li>
+                            <a hx-get="/separados" hx-target="#main" hx-trigger="click" hx-indicator="#spinner" href="#"
+                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 ">Separado</a>
+                        </li>
+                        <li>
+                            <a hx-get="/emrota" hx-target="#main" hx-trigger="click" hx-indicator="#spinner" href="#"
+                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 ">Em
+                                Rota</a>
+                        </li>
+                        <li>
+                            <a hx-get="/entregue" hx-target="#main" hx-trigger="click" hx-indicator="#spinner" href="#"
+                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 ">Entregue</a>
+                        </li>
+
+                    </ul>
+                </div>
             </div>
-            <div
-                class="nav-links duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex items-center px-5">
-                <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
-                    <li>
-                        <a class="hover:text-gray-500" href="#">Home</a>
-                    </li>
-                    <li>
-                        <a class="hover:text-gray-500" href="#">
-                            <div class="flex items-center gap-2">
-                                Entregas
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hover:text-gray-500" href="#">
-                            <div class="flex items-center gap-2">
-                                Separado
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hover:text-gray-500" href="#">
-                            <div class="flex items-center gap-2">Em Rota</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hover:text-gray-500" href="#">
-                            <div class="flex items-center gap-2">Entregue</div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="flex items-center gap-6">
-                <!-- <button class="bg-[#a6c1ee] text-white px-5 py-2 rounded-full hover:bg-[#87acec]">Sign in</button> -->
-                <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon>
-            </div>
+        </nav>
     </header>
+
     {{end}}
 `,
 		filepath.Join(projectName, "templates/footer.html"): `
@@ -190,11 +200,14 @@ module.exports = {
 </html>
 {{end}}`,
 		filepath.Join(projectName, "templates/index.html"): `
+        {{define "index"}}
     {{template "header"}}
 <main class="flex-grow">
 
 </main>
 {{template "footer"}}
+
+        {{end}}
 `,
 	}
 
