@@ -101,7 +101,7 @@ module.exports = {
     <link rel="stylesheet" href="../static/css/main.css">
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="manifest" href="../static/manifest.json">
-    <link rel="stylesheet" href="/static/css/flowbite.min.css">
+    <link rel="stylesheet" href="/node_modules\flowbite\dist\flowbite.min.css">
     <script src="https://unpkg.com/hyperscript.org@0.9.12"></script>
     <meta name="theme-color" content="#ffffff">
     <link rel="icon" href="../static/img/favicon.ico" type="image/x-icon">
@@ -109,8 +109,10 @@ module.exports = {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
         rel="stylesheet">
+
     <script src="../static/js/htmx.min.js"></script>
-    <title>Rota Mx</title>
+    <title>Maxcell O.S.</title>
+
 </head>
 
 <body class="font-[Poppins] bg-gradient-to-t from-slate-400 to-slate-200 min-h-screen flex flex-col">
@@ -118,7 +120,7 @@ module.exports = {
         <nav class="bg-white border-gray-200 ">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 <a href="https://mxrota.shop/" class="flex items-center space-x-3 rtl:space-x-reverse">
-                    <img src="/static/img/logo.svg" class="h-8" alt="Flowbite Logo" />
+                    <img src="/static/img/maxcell_celulares.svg" class="h-10" alt="Maxcell Logo" />
                     <span class="self-center text-2xl font-semibold whitespace-nowrap "></span>
                 </a>
                 <button data-collapse-toggle="navbar-default" type="button"
@@ -137,25 +139,37 @@ module.exports = {
 
                         <li>
                             <a hx-get="/inicio" hx-target="#main" hx-trigger="click" hx-indicator="#spinner" href="#"
-                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 ">Inicio</a>
+                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-slate-400 md:p-0 ">Home</a>
                         </li>
                         <li>
-                            <a hx-get="/pedsemrota" hx-target="#main" hx-trigger="click" hx-indicator="#spinner"
+                            <a hx-get="/aguardando" hx-target="#main" hx-trigger="click" hx-indicator="#spinner"
                                 href="#"
-                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 ">Entregas</a>
+                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-slate-400 md:p-0 ">Aguardando</a>
                         </li>
                         <li>
-                            <a hx-get="/separados" hx-target="#main" hx-trigger="click" hx-indicator="#spinner" href="#"
-                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 ">Separado</a>
+                            <a hx-get="/iniciado" hx-target="#main" hx-trigger="click" hx-indicator="#spinner" href="#"
+                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-slate-400 md:p-0 ">Iniciada</a>
                         </li>
                         <li>
-                            <a hx-get="/emrota" hx-target="#main" hx-trigger="click" hx-indicator="#spinner" href="#"
-                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 ">Em
-                                Rota</a>
+                            <a hx-get="/aguardandoaprovacao" hx-target="#main" hx-trigger="click"
+                                hx-indicator="#spinner" href="#"
+                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-slate-400 md:p-0 ">Aguardando
+                                Aprovação</a>
                         </li>
                         <li>
-                            <a hx-get="/entregue" hx-target="#main" hx-trigger="click" hx-indicator="#spinner" href="#"
-                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 ">Entregue</a>
+                            <a hx-get="/aguardandopeca" hx-target="#main" hx-trigger="click" hx-indicator="#spinner"
+                                href="#"
+                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-slate-400 md:p-0 ">Aguardando
+                                Peça</a>
+                        </li>
+                        <li>
+                            <a hx-get="/senha" hx-target="#main" hx-trigger="click" hx-indicator="#spinner" href="#"
+                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-slate-400 md:p-0 ">Aguardando
+                                Senha</a>
+                        </li>
+                        <li>
+                            <a hx-get="/concluido" hx-target="#main" hx-trigger="click" hx-indicator="#spinner" href="#"
+                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-slate-400 md:p-0 ">Concluída</a>
                         </li>
 
                     </ul>
@@ -166,27 +180,26 @@ module.exports = {
 
 `,
 		filepath.Join(projectName, "templates/footer.html"): `
-<script>
-    const navLinks = document.querySelector('.nav-links')
-    function onToggleMenu(e) {
-        e.name = e.name === 'menu' ? 'close' : 'menu'
-        navLinks.classList.toggle('top-[9%]')
-    }
-</script>
 
-</body>
-<footer>
-    <div class="footer bg-slate-700 flex justify-center items-center p-1">
-        <p class="text-white text-sm">Sita & Sita | Copyright &copy; 2024</p>
-    </div>
-</footer>
-
-</html>`,
+        <script src="../static/js/flowbite.min.js"></script>
+        </body>
+        <footer>
+            <div class="footer bg-slate-700 flex justify-center items-center p-1">
+                <p class="text-white text-sm">Sita & Sita | Copyright &copy; 2024</p>
+            </div>
+        </footer>
+        
+        </html>`,
 		filepath.Join(projectName, "templates/index.html"): `
 {% include 'header.html'%}
 <main class="flex-grow">
 
 </main>
+<script>
+    htmx.onLoad(function (content) {
+        initFlowbite();
+    })
+</script>
 {% include 'footer.html'%}
 `,
 	}
