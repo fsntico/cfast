@@ -54,7 +54,7 @@ import (
 	}
 func Index(c *fiber.Ctx) error {
 
-	return c.Render("bem_vindo", fiber.Map{})
+	return c.Render("index", fiber.Map{})
 }
 
 
